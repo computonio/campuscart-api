@@ -22,6 +22,22 @@ I wanted to work with backend concepts beyond basic CRUD — authentication, rol
 - **JWT** (PyJWT) for authentication and **bcrypt** for password hashing
 - **Docker Compose** to run the app and database together without a local Postgres install
 
+## Project structure
+
+```
+app/
+├── main.py            # app entrypoint, wires up routers
+├── database.py         # SQLAlchemy engine/session
+├── models.py            # User, Listing, PurchaseRequest tables
+├── schemas.py            # Pydantic request/response models
+├── security.py            # password hashing + JWT
+├── deps.py                 # get_current_user, require_role()
+└── routers/
+    ├── auth.py                # /auth/register, /auth/login
+    ├── listings.py             # /listings CRUD
+    └── requests.py              # purchase request workflow
+```
+
 ## Running it
 
 ```bash
